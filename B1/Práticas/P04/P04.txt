@@ -1,1 +1,40 @@
+# Projeto Cadastro e Preferências de Filmes com Flask
 
+Este projeto é uma aplicação web simples feita com **Flask** e **Flask-Login** para demonstrar um sistema básico de:
+
+- **Cadastro de usuários** (com armazenamento em memória)
+- **Login e autenticação**
+- **Gerenciamento de sessão**
+- **Cadastro e listagem de preferências de filmes por usuário**
+- **Remoção de filmes das preferências**
+- Proteção de rotas privadas com login obrigatório
+
+---
+
+## Funcionalidades principais
+
+- Usuários podem criar conta com nome de usuário e senha
+- Login com autenticação via Flask-Login
+- Após login, o usuário pode cadastrar seus filmes preferidos
+- Lista personalizada de filmes preferidos, armazenada na sessão do usuário
+- Remover filmes da lista de preferências
+- Logout para encerrar a sessão
+- Proteção das rotas para garantir que apenas usuários logados acessem páginas privadas
+- Redirecionamento automático para login se o usuário não estiver autenticado
+
+---
+
+## Tecnologias utilizadas
+
+- Python 3.x
+- Flask
+- Flask-Login
+- Templates Jinja2 (HTML)
+- Cookies e sessão para manter dados temporários do usuário
+
+---
+
+## Estrutura do projeto
+
+- `app.py`: Código principal da aplicação Flask, rotas e lógica de autenticação
+- `templates/`: Templates HTML para as páginas de login, cadastro de usuário, cadastro de filmes, listagem e remoção de preferências, e página inicial
