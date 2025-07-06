@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: block;
+            border: 1px solid darkgray;
+            background-color: darkblue;
+            color:white;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Filmes
+    </h1>
+
+    <a href=" {{ url_for('register') }}">Cadastrar Preferências</a>
+    <a href="{{ url_for('preferencias') }}">Ver Preferências</a>
+    <a href="{{ url_for('logout') }}">Sair (Logout)</a>
+</body>
+</html>
