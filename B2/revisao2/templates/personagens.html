@@ -8,10 +8,10 @@
 </head>
 <body>
     
-    {% for id in lista %}
-    
-    <p> {{ usuario.nome }} | {{usuario['nome']}} | {{usuario[1]}} </p>
-
+    {% for p in lista %}
+        <p>{{ p['nomepersonagem'] }} | {{ p['jogoorigem'] }} | {{ p['habilidade'] }}</p>
+    {% else %}
+        <p>Nenhum personagem cadastrado.</p>
     {% endfor %}
 
 </body>
