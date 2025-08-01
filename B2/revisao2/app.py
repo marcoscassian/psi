@@ -17,11 +17,27 @@ def index():
 
 @app.route('/personagens')
 def personagens():
-    return render_template("personagens.html")
+    conn = obter_conexao()
+    SQL = "SELECT * FROM jogo"
+    lista = conn.execute(SQL).fetchall()
+    conn.close()
+    return render_template("personagens.html", lista=lista)
   
 @app.route('/novo', methods=['GET', 'POST'])
 def novo():
     if request.method == "POST":
+        nomepersonagem = request.form['nomepersonagem']
+        jogoorigem = request.form['jogoorigem']
+        habilidade = request.form['habilidade']
+
         conn = obter_conexao()
-        
-    return render_template("novo.html")
+
+        SQL = "INSERT INTO jogo(nomepersonagem, jogoorigem, habilidade) VALUES (?, ?, ?)"
+        conn.execute(SQL, (nomepersonagem, jogoorigem, habilidade))
+        conn.commit()
+        conn.close()
+
+
+        return redirect(url_for('personagens'))
+
+    return redirect(url_for('novo.html'))
