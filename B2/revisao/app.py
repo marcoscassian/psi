@@ -5,31 +5,39 @@ import sqlite3
 
 
 def obter_conexao():
-    conn = sqlite3.connect('banco.db')
+    conn = sqlite3.connect('jogo.db')
     conn.row_factory = sqlite3.Row
     return conn
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template("index.html")
 
+@app.route('/personagens')
+def personagens():
+    conn = obter_conexao()
+    SQL = "SELECT * FROM jogo"
+    lista = conn.execute(SQL).fetchall()
+    conn.close()
+    return render_template("personagens.html", lista=lista)
+  
+@app.route('/novo', methods=['GET', 'POST'])
+def novo():
     if request.method == "POST":
-        nome = request.form['nome']
+        nomepersonagem = request.form['nomepersonagem']
+        jogoorigem = request.form['jogoorigem']
+        habilidade = request.form['habilidade']
 
         conn = obter_conexao()
 
-        SQL = "INSERT INTO users(nome) VALUES (?)"
-        conn.execute(SQL, (nome,))
+        SQL = "INSERT INTO jogo(nomepersonagem, jogoorigem, habilidade) VALUES (?, ?, ?)"
+        conn.execute(SQL, (nomepersonagem, jogoorigem, habilidade))
         conn.commit()
         conn.close()
 
 
-        return redirect(url_for('index'))
+        return redirect(url_for('personagens'))
 
-    conn = obter_conexao()
-    SQL = "SELECT * FROM users"
-    lista = conn.execute(SQL).fetchall()
-    conn.close()
-
-    return render_template('index.html', lista=lista)
+    return redirect(url_for('novo.html'))
