@@ -1,5 +1,4 @@
 
-````markdown
 # Fluxo Básico de GitHub
 
 ## 1️⃣ Configuração Inicial
