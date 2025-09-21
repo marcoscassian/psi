@@ -1,4 +1,3 @@
-Beleza 😎, aqui está o resumo **do fluxo de enviar e receber alterações no GitHub** em **Markdown**, pronto pra você usar em README ou notas:
 
 ````markdown
 # Fluxo Básico de GitHub
