@@ -109,12 +109,3 @@ git push origin main
 * Sempre faça **pull antes de editar**
 * Commitar frequentemente mantém o histórico limpo
 * Use **SSH** ou **Git Credential Manager** para não precisar digitar senha/token sempre
-
-```
-
----
-
-Se você quiser, posso fazer uma **versão ainda mais resumida e visual**, tipo um **fluxo em etapas com setas** que serve como guia rápido de GitHub.  
-
-Quer que eu faça isso?
-```
