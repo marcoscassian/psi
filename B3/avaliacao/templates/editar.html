@@ -1,0 +1,20 @@
+<!-- templates/livros/editar.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Livro</title>
+</head>
+<body>
+    <h1>Editar Livro</h1>
+    <form method="POST">
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" id="titulo" value="{{ livro.titulo }}" required><br>
+
+        <label for="ano">Ano:</label>
+        <input type="text" name="ano" id="ano" value="{{ livro.ano }}" required><br>
+
+        <button type="submit">Salvar alterações</button>
+    </form>
+</body>
+</html>
